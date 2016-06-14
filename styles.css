@@ -1,0 +1,118 @@
+@media print {
+    #page-mod-quiz-report table {float: none !important; }
+    #page-mod-quiz-report div { float: none !important; }
+    #page-mod-quiz-report form, #page-mod-quiz-report .groupselector, .cg_heading, .cg_heading ~ h2, #page-mod-quiz-report .maincontent ~ h2, .categorygrades_print_single { display: none; }
+    #page-mod-quiz-report #page-content #region-main .region-content { padding: 1em !important; }
+    #page-mod-quiz-report #page-content-wrapper, #page-mod-quiz-report #page-wrap1, #page-mod-quiz-report #page-wrap2 { background: none !important; }
+}
+
+.cg_categorynamescore span {
+    table-cell;
+    display: inline-block;
+    width: 45%;
+    font-size: larger;
+    font-weight: bold;
+}
+
+span.cg_categoryscore {
+    text-align: right;
+}
+
+
+.cg_subcategorygrades .cg_subcategorygrades .cg_categorynamescore span {
+    font-size: inherit;
+    font-weight: bold;
+}
+
+.cg_subcategorygrades .cg_subcategorygrades .cg_subcategorygrades .cg_categorynamescore span {
+    font-size: larger;
+    font-weight: inherit;
+}
+
+
+ul.cg_subcategorygrades  {
+    margin-right: 8em;
+}
+
+.cg_categoryheading {
+    font-size: larger;
+}
+
+.cg_categoryheading p {
+    margin-bottom: 0.25em;
+}
+
+.cg_categoryheading .cg_userinfo {
+    font-weight: bold;
+}
+
+.cg_categorynamescore.cg_parentcat {
+    border-bottom: thin black solid;
+}
+
+.cg_categorygrades.cg_parentcat {
+    margin-bottom: 3em;
+}
+
+li:nth-child(even)  > .cg_categorygrades > .cg_leafcat {
+    background-color: #e0e0e0;
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+}
+
+li:nth-child(odd) > .cg_categorygrades > .cg_leafcat {
+    background-color: #ffffff;
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+}
+
+.cg_attempt {
+    margin-bottom: 5em;
+    margin-top: 5em;
+}
+
+.cg_attempt+.cg_attempt { page-break-inside: avoid; page-break-before: always; webkit-region-break-inside: avoid; }
+
+.cg_attempt > .cg_categorygrades > ul {
+    margin-left: 0em;
+}
+
+#page-mod-quiz-report ul, #page-mod-quiz-report li {
+    list-style-type: none;
+}
+
+.pagelayout-print .navbar, .pagelayout-print #page-header, .pagelayout-print .skiplinks, .pagelayout-print #region-header {
+    display: none;
+}
+
+body.pagelayout-print {
+    margin: 2em;
+}
+
+
+@keyframes spin {
+    0%   {transform: rotate(0deg); }
+    25%  {transform: rotate(90deg); }
+    50%  {transform: rotate(180deg); }
+    75% {transform: rotate(270deg); }
+    100% {transform: rotate(360deg); }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes spin {
+    0%   {transform: rotate(0deg); }
+    25%  {transform: rotate(90deg); }
+    50%  {transform: rotate(180deg); }
+    75% {transform: rotate(270deg); }
+    100% {transform: rotate(360deg); }
+}
+
+.spinner {
+    height: 1em;
+    display: inline-block;
+    animation: spin 2s linear 0s infinite;
+     -webkit-animation: spin 2s linear 0s infinite;
+    font-weight: bold;
+    margin: 0.25em;
+}
+
