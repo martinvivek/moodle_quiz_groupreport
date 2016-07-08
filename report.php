@@ -201,9 +201,9 @@ class quiz_groupreport_report extends quiz_default_report {
             );
     }
 
-    protected function display_single_attempt($quizattempt, $table) {
+    protected function display_single_attempt($quizattempt, $table, $first = false) {
         echo html_writer::start_tag('div', array ('class' => 'cg_attempt'));
-        echo get_config('mod_quiz_report_groupreport', 'attemptheader');
+        if ($first) { echo get_config('mod_quiz_report_categorygrades', 'attemptheader'); }
         echo $this->display_single_attempt_heading($quizattempt, $table);
         echo html_writer::end_tag('div');
     }
@@ -306,8 +306,10 @@ class quiz_groupreport_report extends quiz_default_report {
 
         echo html_writer::tag('h2', $this->quiz->name);
 
+        $first = true;
         foreach (array_slice($attempts, $page * $pagesize, $pagesize, true) AS $attempt) {
-            $this->display_single_attempt($attempt, $table);
+            $this->display_single_attempt($attempt, $table, $first);
+            $first = false;
         }
 
         echo html_writer::table($table);
