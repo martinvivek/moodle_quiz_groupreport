@@ -41,6 +41,8 @@ class quiz_groupreport_report extends quiz_default_report {
 
     public function display($quiz, $cm, $course) {
         global $CFG, $PAGE, $OUTPUT;
+        global $DB;
+
         $PAGE->set_pagelayout('print');
         $PAGE->requires->js('/mod/quiz/report/groupreport/groupreport.js');
 
@@ -101,10 +103,12 @@ class quiz_groupreport_report extends quiz_default_report {
 
         // Start output.
         $this->print_header_and_tabs($cm, $course, $quiz, 'groupreport');
-        echo html_writer::tag('p', '<br/><br/><br/><br/>');    #add space to top of page to allow for header to show up properly
+        echo html_writer::tag('p', '<br/><br/><br/><br/>', array ('class' => 'header_space'));    #add space to top of page to allow for header to show up properly
         echo $OUTPUT->heading(get_string('groupreport', 'quiz_groupreport'), 2, 'cg_heading');
 
         echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\">\n";
+        echo '<link rel="stylesheet" type="text/css" href="report/groupreport/styles.css">';
+
         // What sort of page to display?
         if (!$hasquestions) {
             echo quiz_no_questions_message($quiz, $cm, $this->context);
@@ -203,7 +207,7 @@ class quiz_groupreport_report extends quiz_default_report {
 
     protected function display_single_attempt($quizattempt, $table, $first = false) {
         echo html_writer::start_tag('div', array ('class' => 'cg_attempt'));
-        if ($first) { echo get_config('mod_quiz_report_categorygrades', 'attemptheader'); }
+        if ($first) { echo get_config('mod_quiz_report_groupreport', 'attemptheader'); }
         echo $this->display_single_attempt_heading($quizattempt, $table);
         echo html_writer::end_tag('div');
     }

@@ -1,13 +1,15 @@
 @media print {
     #page-mod-quiz-report table {float: none !important; }
     #page-mod-quiz-report div { float: none !important; }
-    #page-mod-quiz-report form, #page-mod-quiz-report .groupselector, .cg_heading, .cg_heading ~ h2, #page-mod-quiz-report .maincontent ~ h2, .categorygrades_print_single { display: none; }
+    #page-mod-quiz-report form, #page-mod-quiz-report .groupselector, .cg_heading, .cg_heading ~ h2, #page-mod-quiz-report .maincontent ~ h2, .groupmulti_print_single { page-break-after: avoid !important; display: none; }
+    #page-mod-quiz-report form, #page-mod-quiz-report .groupselector, .paging, .header_space { page-break-after: avoid !important; display: none; }
     #page-mod-quiz-report #page-content #region-main .region-content { padding: 1em !important; }
     #page-mod-quiz-report #page-content-wrapper, #page-mod-quiz-report #page-wrap1, #page-mod-quiz-report #page-wrap2 { background: none !important; }
 }
 
 .cg_categorynamescore span {
-    table-cell;
+/*    table-cell;
+*/
     display: inline-block;
     width: 45%;
     font-size: larger;
@@ -54,13 +56,13 @@ ul.cg_subcategorygrades  {
     margin-bottom: 3em;
 }
 
-li:nth-child(even)  > .cg_categorygrades > .cg_leafcat {
+li:nth-child(even)  > .cg_groupreport > .cg_leafcat {
     background-color: #e0e0e0;
     padding-bottom: 0.25em;
     padding-top: 0.25em;
 }
 
-li:nth-child(odd) > .cg_categorygrades > .cg_leafcat {
+li:nth-child(odd) > .cg_groupreport > .cg_leafcat {
     background-color: #ffffff;
     padding-bottom: 0.25em;
     padding-top: 0.25em;
@@ -73,7 +75,7 @@ li:nth-child(odd) > .cg_categorygrades > .cg_leafcat {
 
 .cg_attempt+.cg_attempt { page-break-inside: avoid; page-break-before: always; webkit-region-break-inside: avoid; }
 
-.cg_attempt > .cg_categorygrades > ul {
+.cg_attempt > .cg_groupreport > ul {
     margin-left: 0em;
 }
 
